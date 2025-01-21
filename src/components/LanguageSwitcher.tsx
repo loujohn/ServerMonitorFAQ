@@ -11,12 +11,13 @@ export default function LanguageSwitcher() {
     const router = useRouter();
     const pathname = usePathname();
 
-    const handleChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newLocale = e.target.value as typeof locales[number];
-        router.replace(pathname, { locale: newLocale });
-        setTimeout(() => {
-            window.location.reload();
-        }, 100);
+        const currentPath = window.location.pathname;
+        const segments = currentPath.split('/');
+        segments[1] = newLocale;
+        const newPath = segments.join('/');
+        window.location.href = newPath;
     };
 
     return (
