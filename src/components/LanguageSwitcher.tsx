@@ -13,7 +13,7 @@ export default function LanguageSwitcher() {
 
     const handleChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newLocale = e.target.value as typeof locales[number];
-        await router.replace(pathname, { locale: newLocale });
+        router.replace(pathname, { locale: newLocale });
         setTimeout(() => {
             window.location.reload();
         }, 100);
