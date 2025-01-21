@@ -1,0 +1,105 @@
+{
+    "Index": {
+        "title": "ServerMonitor",
+        "description": "Your one-stop iOS server monitoring solution.",
+        "getSupport": "Get Support",
+        "privacyPolicy": "Privacy Policy",
+        "features": {
+            "title": "Key Features",
+            "serverMonitoring": {
+                "title": "Server Monitoring",
+                "description": "Real-time monitoring of CPU, memory, disk usage, and network traffic."
+            },
+            "dockerManagement": {
+                "title": "Docker Management",
+                "description": "Easily manage Docker containers from your iOS device."
+            },
+            "sshTerminal": {
+                "title": "SSH Terminal",
+                "description": "Secure SSH terminal access to your servers."
+            }
+        },
+        "screenshots": {
+            "title": "Beautiful Interface",
+            "subtitle": "Powerful features with a modern, intuitive design",
+            "dashboard": "Real-time server monitoring dashboard",
+            "docker": "Manage Docker containers and view logs",
+            "terminal": "Full-featured SSH terminal access"
+        }
+    },
+    "Support": {
+        "title": "Support",
+        "description": "Get help with ServerMonitor+",
+        "viewFAQ": "View FAQ",
+        "contactSupport": "Contact Support",
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "addServer": {
+                "question": "How do I add a new server?",
+                "answer": "Click the '+' button in the top right corner of the main screen and enter your server's IP address, SSH port, and authentication details. Both password and SSH key authentication are supported."
+            },
+            "docker": {
+                "question": "How do I manage Docker containers?",
+                "answer": "Ensure Docker is installed on your server and your user has Docker access permissions. Once connected, switch to the Docker tab to view and manage containers."
+            },
+            "metrics": {
+                "question": "How are monitoring metrics collected?",
+                "answer": "We collect server metrics in real-time through secure SSH connections, including CPU, memory, disk usage, and network traffic. All data is real-time and no additional agent installation is required."
+            },
+            "security": {
+                "question": "Is data transmission and storage secure?",
+                "answer": "Yes. All server communication is done through encrypted SSH protocol, and credentials are securely stored in the iOS Keychain. We don't store any sensitive information in the cloud."
+            }
+        },
+        "contact": {
+            "title": "Contact Us",
+            "description": "Need more help? We're here for you.",
+            "responseTime": "Usually responds within 24 hours",
+            "emailSupport": "Email Support",
+            "liveChat": "Live Chat"
+        }
+    },
+    "Privacy": {
+        "title": "Privacy Policy",
+        "description": "We value your privacy and are committed to protecting your data",
+        "lastUpdated": "Last updated: January 2024",
+        "quickNav": "Quick Navigation",
+        "sections": {
+            "collection": {
+                "title": "Information Collection",
+                "content": "We collect minimal information to help you monitor your servers."
+            },
+            "storage": {
+                "title": "Data Storage",
+                "content": "All server credentials are stored locally on your device.",
+                "details": [
+                    "Server credentials are securely stored in iOS Keychain",
+                    "SSH keys and passwords never leave your device",
+                    "Monitoring data is only stored temporarily for display"
+                ]
+            },
+            "security": {
+                "title": "Data Security",
+                "content": "We take appropriate security measures to protect your information.",
+                "details": [
+                    "All server communication is end-to-end encrypted",
+                    "Credentials are stored securely in iOS Keychain",
+                    "No sensitive data is stored on our servers",
+                    "Regular security audits and updates"
+                ]
+            },
+            "thirdParty": {
+                "title": "Third-Party Services",
+                "content": "We do not share your data with any third-party services. All server monitoring and management functions are performed directly between your device and your servers."
+            },
+            "changes": {
+                "title": "Changes to Privacy Policy",
+                "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the 'last updated' date."
+            },
+            "contact": {
+                "title": "Contact Us",
+                "content": "If you have any questions about this privacy policy, please contact us at:"
+            }
+        }
+    }
+}

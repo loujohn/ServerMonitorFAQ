@@ -1,30 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("Index");
+  const locale = useLocale();
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col items-center text-center">
           <h1 className="mb-4 text-5xl font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-            ServerMonitor<span className="text-blue-600">+</span>
+            {t("title")}
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-gray-600">
-            Your all-in-one iOS solution for server monitoring, Docker management, and SSH terminal access. Keep your servers running smoothly with real-time monitoring and powerful management tools.
+            {t("description")}
           </p>
           <div className="flex gap-4">
             <Link
-              href="/support"
+              href={`/${locale}/support`}
               className="rounded-lg bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
             >
-              Get Support
+              {t("getSupport")}
             </Link>
             <Link
-              href="/privacy"
+              href={`/${locale}/privacy`}
               className="rounded-lg border border-gray-300 px-6 py-3 text-gray-700 hover:bg-gray-50"
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
           </div>
         </div>
@@ -34,26 +39,30 @@ export default function Home() {
       <div className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-12 text-center text-3xl font-bold text-gray-900">
-            Key Features
+            {t("features.title")}
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">Server Monitoring</h3>
+              <h3 className="mb-3 text-xl font-semibold text-gray-900">
+                {t("features.serverMonitoring.title")}
+              </h3>
               <p className="text-gray-600">
-                Real-time monitoring of CPU, memory, disk usage, and network traffic. Set up custom alerts for critical events.
+                {t("features.serverMonitoring.description")}
               </p>
             </div>
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">Docker Management</h3>
+              <h3 className="mb-3 text-xl font-semibold text-gray-900">
+                {t("features.dockerManagement.title")}
+              </h3>
               <p className="text-gray-600">
-                Manage Docker containers with ease. Start, stop, restart, and monitor container status from your iOS device.
+                {t("features.dockerManagement.description")}
               </p>
             </div>
             <div className="rounded-lg bg-white p-6 shadow-sm">
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">SSH Terminal</h3>
-              <p className="text-gray-600">
-                Secure SSH terminal access to your servers. Execute commands and manage your servers on the go.
-              </p>
+              <h3 className="mb-3 text-xl font-semibold text-gray-900">
+                {t("features.sshTerminal.title")}
+              </h3>
+              <p className="text-gray-600">{t("features.sshTerminal.description")}</p>
             </div>
           </div>
         </div>
@@ -63,10 +72,10 @@ export default function Home() {
       <div className="overflow-hidden py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-4 text-center text-3xl font-bold text-gray-900">
-            Beautiful Interface
+            {t("screenshots.title")}
           </h2>
           <p className="mb-12 text-center text-lg text-gray-600">
-            Powerful features wrapped in a modern, intuitive design
+            {t("screenshots.subtitle")}
           </p>
 
           <div className="relative">
@@ -91,7 +100,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition duration-500 group-hover:opacity-100">
                     <p className="text-center text-sm font-medium text-white">
-                      Real-time server monitoring dashboard with detailed metrics
+                      {t("screenshots.dashboard")}
                     </p>
                   </div>
                 </div>
@@ -109,7 +118,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition duration-500 group-hover:opacity-100">
                     <p className="text-center text-sm font-medium text-white">
-                      Effortlessly manage Docker containers and view logs
+                      {t("screenshots.docker")}
                     </p>
                   </div>
                 </div>
@@ -127,7 +136,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition duration-500 group-hover:opacity-100">
                     <p className="text-center text-sm font-medium text-white">
-                      Powerful SSH terminal with full server access
+                      {t("screenshots.terminal")}
                     </p>
                   </div>
                 </div>
