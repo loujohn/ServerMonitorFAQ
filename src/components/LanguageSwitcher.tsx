@@ -11,24 +11,25 @@ export default function LanguageSwitcher() {
     const router = useRouter();
     const pathname = usePathname();
 
-    const handleChange = (newLocale: typeof locales[number]) => {
-        router.push(pathname, { locale: newLocale });
+    const handleChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newLocale = e.target.value as typeof locales[number];
+        await router.replace(pathname, { locale: newLocale });
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
     };
 
     return (
-        <div className="flex items-center gap-2">
+        <select
+            value={locale}
+            onChange={handleChange}
+            className="rounded-lg px-3 py-1 text-sm font-medium bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
             {locales.map((l) => (
-                <button
-                    key={l}
-                    className={`rounded-lg px-3 py-1 text-sm font-medium transition ${l === locale
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-600 hover:bg-gray-100"
-                        }`}
-                    onClick={() => handleChange(l)}
-                >
+                <option key={l} value={l}>
                     {l === "en" ? "English" : "中文"}
-                </button>
+                </option>
             ))}
-        </div>
+        </select>
     );
 } 
