@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import { NextIntlClientProvider } from "next-intl";
 import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
 import { locales } from "~/config/i18n";
 import type { Locale } from "~/config/i18n";
@@ -15,20 +14,25 @@ export function generateStaticParams() {
 
 type Props = {
     children: React.ReactNode;
-    params: { locale: string };
+    params: Promise<{
+        locale: string;
+    }>;
 };
 
-export default async function LocaleLayout(props: Props) {
-    const locale = (await props.params).locale;
+export default async function LocaleLayout({
+    children,
+    params,
+}: Props) {
+    const { locale } = await params;
 
     // Validate and handle the locale
     if (!locales.includes(locale as Locale)) notFound();
 
     // Set the locale for the request
-    unstable_setRequestLocale(locale);
+    unstable_setRequestLocale(locale as Locale);
 
     // Get translations
-    const t = await getTranslations('Index');
+    const t = await getTranslations('Navigation');
 
     return (
         <div className={inter.className}>
@@ -40,7 +44,7 @@ export default async function LocaleLayout(props: Props) {
                     <LanguageSwitcher />
                 </div>
             </header>
-            <div className="pt-16">{props.children}</div>
+            <div className="pt-16">{children}</div>
         </div>
     );
 } 

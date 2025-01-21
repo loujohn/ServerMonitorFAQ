@@ -1,15 +1,16 @@
+import { type Messages } from "../types/messages";
 import { createTranslator } from "next-intl";
 
-export function getTranslations(messages: any) {
+export default function getNamespaces(messages: Messages, locale: string) {
   return {
     get index() {
-      return createTranslator({ messages, namespace: "Index" });
+      return createTranslator({ messages, namespace: "Index", locale });
     },
     get support() {
-      return createTranslator({ messages, namespace: "Support" });
+      return createTranslator({ messages, namespace: "Support", locale });
     },
     get privacy() {
-      return createTranslator({ messages, namespace: "Privacy" });
+      return createTranslator({ messages, namespace: "Privacy", locale });
     },
   };
 }

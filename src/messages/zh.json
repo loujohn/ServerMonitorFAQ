@@ -1,4 +1,10 @@
 {
+    "Navigation": {
+        "title": "导航",
+        "home": "首页",
+        "support": "支持",
+        "privacy": "隐私政策"
+    },
     "Index": {
         "title": "ServerMonitor",
         "description": "您的一站式 iOS 服务器监控解决方案",

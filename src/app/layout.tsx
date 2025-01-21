@@ -12,18 +12,24 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{
+    locale: string;
+  }>;
+};
+
 export default async function RootLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+}: Props) {
+  const { locale } = await params;
+
   return (
-    <html lang={params.locale} className={GeistSans.variable}>
+    <html lang={locale} className={GeistSans.variable}>
       <body>
         <TRPCReactProvider>
-          <NextIntlClientProvider locale={params.locale}>
+          <NextIntlClientProvider locale={locale}>
             {children}
           </NextIntlClientProvider>
         </TRPCReactProvider>
